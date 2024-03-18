@@ -1,1 +1,25 @@
 // app global css in SCSS form
+@import './base';
+@import './mixins';
+
+///////////////
+// TEXT SIZE
+///////////////
+.font-xs {
+  font-size: $font-size-xs !important;
+}
+
+.font-sm {
+  font-size: $font-size-sm !important;
+}
+
+.font-oswald {
+  font-family: $fontOswald;
+}
+
+///////////////
+// TEXT COLOR
+///////////////
+.text-primary-dark{
+  color: $primary-dark;
+}

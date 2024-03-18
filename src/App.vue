@@ -24,14 +24,9 @@ export default defineComponent({
     })
 
     router.beforeEach((to, from, next) => {
-
-      console.log({to});
-      console.log(to.meta.requiresAuth, authStore.isAuthenticated);
       if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-        console.log('If beforeEach');
         next('/admin-login');
       } else {
-        // console.log('ELSE beforeEach');
         next();
       }
     });

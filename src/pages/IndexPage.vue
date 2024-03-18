@@ -1,25 +1,32 @@
 <template>
-  <q-page class="flex flex-center">
-    <h1>Home page</h1>
-    <q-btn class="q-mt-xl" color="white" text-color="blue" unelevated to="/admin-login" label="Admin login" no-caps />
-
-    <q-btn class="q-mt-xl" color="secondary" fill label="Get data" @click="getData" />
-
-    <div>{{ data }}</div>
+  <q-page class="">
+    <square-shape-svg :title="'La Clé Du Quai'"></square-shape-svg>
   </q-page>
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue'
+import { onMounted, ref, defineComponent } from 'vue'
 import { useHomeStore } from "../stores/home/home";
+import { useAppStore } from "../stores/app/app";
+import squareShapeSvg from 'src/components/square-shape-svg.vue';
 
 export default defineComponent({
   name: 'IndexPage',
 
-  setup() {
+  components: { squareShapeSvg },
 
+  setup() {
+    const appStore = useAppStore();
     const homeStore = useHomeStore();
     const data = ref(null)
+
+    function init() {
+      appStore.$patch({ appTitle: "Accueil" });
+    }
+
+    onMounted(async () => {
+      init();
+    });
 
     async function getData() {
 
@@ -34,7 +41,7 @@ export default defineComponent({
 
     return {
       data,
-      getData
+      getData,
     }
   }
 })

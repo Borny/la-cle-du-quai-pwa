@@ -12,7 +12,53 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$white: #FFFFFF;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+///////////
+// MIXINS
+///////////
+@mixin screen-xs {
+  @media (min-width: $screen-xs) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media (min-width: $screen-lg) {
+    @content;
+  }
+}
+
+///////////
+// COLORS
+///////////
+
+$white: #ffffff;
+$black: #000000;
+
+$jaggedIce: #ceecea;
+$fountainblue: #5dbeba;
+$oracle: #3d827f;
+
+$butterMilk: #fff4b0;
+$schoolbusyellow: #ffde00;
+$corn: #eacd00;
+
+$cod-gray: #191919;
+$dove-gray: #737373;
 
 $wild-sand: #F5F5F5;
 $nepal: #8F99BB;
@@ -23,8 +69,10 @@ $biscay: #1E3477;
 
 $light-red: #ffe6e6;
 
-$primary   : #1976D2;
-$secondary : #26A69A;
+$primary   : $fountainblue;
+$primary-dark   : $oracle;
+
+$secondary : $schoolbusyellow;
 $accent    : #9C27B0;
 
 $dark      : #1D1D1D;
@@ -46,3 +94,28 @@ $blue-dark: $biscay;
 
 // RED
 $red-light: $light-red;
+
+/////////
+// FONT
+/////////
+$fontPoppins: 'Poppins', 'Roboto', sans-serif;
+$fontOswald: 'Oswald', 'Roboto', sans-serif;
+
+////////////////
+// FONT SIZE
+////////////////
+
+$font-size-sm: 0.8rem;
+$font-size-xs: 0.6rem;
+$font-size-base: 1rem;
+$font-size-md: 1.2rem;
+$font-size-lg: 1.5rem;
+
+/////////////////
+// SCREEN SIZES
+/////////////////
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;

@@ -2,14 +2,19 @@
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/accueil',
   },
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     // meta: {requiresAuth: true},
     children: [
-      { path: '/home', component: () => import('pages/IndexPage.vue') },
+      { path: '/accueil', component: () => import('pages/IndexPage.vue') },
+      { path: '/cours', component: () => import('pages/CoursesPage.vue') },
+      { path: '/stages', component: () => import('pages/StagesPage.vue') },
+      { path: '/actions-artistiques', component: () => import('pages/ActionsArtistiquesPage.vue') },
+      { path: '/accueil-en-residence', component: () => import('pages/ResidencePage.vue') },
+      { path: '/galerie', component: () => import('pages/GalleryPage.vue') },
       { path: '/admin',
         component: () => import('pages/AdminPage.vue'),
         meta: {requiresAuth: true}

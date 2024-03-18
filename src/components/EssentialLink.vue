@@ -1,14 +1,12 @@
 <template>
+  <!-- TODO: set it up => v-if="mode === 'admin' && authStore.isAuthenticated" -->
   <q-item
     clickable
     tag="a"
-    target="_blank"
-    :href="link"
+    :to="link"
   >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+    <!-- target="_blank" -->
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 
@@ -20,30 +18,43 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
+import { useAuthStore } from "../stores/auth/auth";
 
 export default defineComponent({
-  name: 'EssentialLink',
+  name: "EssentialLink",
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     caption: {
       type: String,
-      default: ''
+      default: "",
     },
 
     link: {
       type: String,
-      default: '#'
+      default: "#",
     },
 
     icon: {
       type: String,
-      default: ''
-    }
-  }
-})
+      default: "",
+    },
+    mode: {
+      type: String,
+      default: "",
+    },
+  },
+
+  setup() {
+    const authStore = useAuthStore();
+
+    return {
+      authStore,
+    };
+  },
+});
 </script>

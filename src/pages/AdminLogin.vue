@@ -54,12 +54,14 @@ import { useQuasar } from "quasar";
 import { useRouter } from "vue-router";
 import { computed, onMounted, ref } from "vue";
 import { useAuthStore } from "../stores/auth/auth";
+import { useAppStore } from "../stores/app/app";
 
 export default{
   name: 'AdminLogin',
 
   setup() {
     const $q = useQuasar();
+    const appStore = useAppStore();
     const authStore = useAuthStore();
     const router = useRouter();
     const isAuth = computed(() => authStore.isAuth);
@@ -72,7 +74,14 @@ export default{
     const isLoading = ref(false);
     const displayForm = ref(false);
 
-    onMounted(() => (displayForm.value = true));
+    function init() {
+      appStore.$patch({ appTitle: "Admin Login" });
+      displayForm.value = true;
+    }
+
+    onMounted(async () => {
+      init();
+    });
 
     async function submit() {
       isLoading.value = true;

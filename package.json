@@ -2,7 +2,7 @@
   "name": "la-cle-du-quai-pwa",
   "version": "0.0.1",
   "description": "La Clé Du Quai Progressive Web App",
-  "productName": "la-cle-du-quai",
+  "productName": "La Clé Du Quai",
   "author": "Tristan <borntowebb@gmail.com>",
   "private": true,
   "scripts": {
